@@ -12,7 +12,8 @@
     <nav>
       <a href="/">🏠</a>
       <a href="/about">😀</a>
-      <a href="/posts">📰</a>
+      <a href="{% url 'posts:list' %}">📰</a>
+      {% comment %} refers to the url name we gave in the url.py for posts {% endcomment %}
     </nav>
     <main>
       {% block content %} 
