@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   background-color: black;
   color: whitesmoke;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 nav {
@@ -22,13 +22,13 @@ nav {
 
 main {
   flex-grow: 1;
-  display: grid;
-  place-content: center;
+  /* display: grid;
+  place-content: center; */
 }
 
 h1,
 p {
-  text-align: center;
+   text-align: left;
 }
 
 a {
@@ -39,3 +39,4 @@ a {
 a:hover {
   opacity: 0.85;
 }
+
