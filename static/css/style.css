@@ -40,3 +40,9 @@ a:hover {
   opacity: 0.85;
 }
 
+.banner {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+}
+
