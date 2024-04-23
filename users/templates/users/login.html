@@ -10,6 +10,10 @@
         <form class="form-with-validation" action="/users/login/" method="post">
             {% csrf_token %}
             {{ form }}
+            {% comment %} Code below is to check if there is a 'next' parameter in the url {% endcomment %}
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+            {% endif %} 
             <button class="form-submit">Submit</button>
         </form>
     </section>

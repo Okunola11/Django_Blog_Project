@@ -18,18 +18,26 @@
       </a>
       <a href="{% url 'posts:list' %}">
         <span role="img" aria-label="Posts" title="Posts">📰</span>
-      </a>
-      {% comment %} refers to the url name we gave in the url.py for posts {% endcomment %}
-      <a href="{% url 'users:register' %}">
-        <span role="img" aria-label="User Registration" title="User Registration">🚀</span>
-      </a>
-      <a href="{% url 'users:login' %}">
-        <span role="img" aria-label="User Login" title="User Login">🔓</span>
-      </a>
-      <form class="logout" action="{% url 'users:logout' %}" method="POST">
-        {% csrf_token %}
-        <button class="logout-button" aria-label="User Logout" title="User Logout">👋</button>
-      </form>
+      </a>      
+      {% comment %} We can show the links below if 'user is authenticated' {% endcomment %}
+      {% if user.is_authenticated %}
+        {% comment %} refers to the url name we gave in the url.py for posts {% endcomment %}
+        <a href="{% url 'posts:new-post' %}">
+          <span role="img" aria-label="New Post" title="New Post">🆕</span>
+        </a>
+        <form class="logout" action="{% url 'users:logout' %}" method="POST">
+          {% csrf_token %}
+          <button class="logout-button" aria-label="User Logout" title="User Logout">👋</button>
+        </form>
+      {% else %}
+        {% comment %} refers to the url name we gave in the url.py for posts {% endcomment %}
+        <a href="{% url 'users:register' %}">
+          <span role="img" aria-label="User Registration" title="User Registration">🚀</span>
+        </a>
+        <a href="{% url 'users:login' %}">
+          <span role="img" aria-label="User Login" title="User Login">🔓</span>
+        </a>
+      {% endif %}
     </nav>
     <main>
       {% block content %} 
